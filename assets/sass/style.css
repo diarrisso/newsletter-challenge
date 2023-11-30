@@ -8,6 +8,11 @@
 body {
   background-color: hsl(235, 18%, 26%);
   font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body .section-flex-content {
   display: flex;
@@ -31,14 +36,18 @@ body .section-flex-content .flex-content {
   flex-direction: column-reverse;
   gap: 3rem;
   background-color: white;
-  padding: 23px;
+  padding: 0;
   border-radius: 2rem;
   align-items: center;
 }
 @media (min-width: 992px) {
   body .section-flex-content .flex-content {
     flex-direction: row;
+    padding: 23px;
   }
+}
+body .section-flex-content .flex-content .flex-content-items {
+  padding: 23px;
 }
 body .section-flex-content .flex-content .flex-content-items h1 {
   font-size: 3.6rem;
@@ -103,53 +112,78 @@ body .section-flex-content .flex-content .flex-content-items .item-input form bu
   min-width: 300px;
   width: 100%;
 }
-body .succes-section {
-  background-color: hsl(235, 18%, 26%);
-  padding: 50px 0;
-  max-width: 500px;
+body .section-flex-content .flex-content .image-content {
   width: 100%;
-  margin: 0 auto;
-  margin-top: 2rem;
+}
+body .section-flex-content .flex-content .image-content img {
+  width: 100%;
+  padding: 0 !important;
+}
+body .succes-msg {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background-color: white;
+  min-height: 100%;
+  width: 100%;
 }
 @media (min-width: 992px) {
-  body .succes-section {
-    flex-direction: row;
-    gap: 4rem;
-    max-width: 1200px;
-    padding: 50px;
+  body .succes-msg {
+    max-width: 500px;
+    min-height: auto;
+    border-radius: 2rem;
+    width: auto;
   }
 }
-body .succes-section .Success-messag-content {
-  background-color: white;
-  max-width: 300px;
-  width: 100%;
-  padding: 23px;
-  margin: 0 auto;
-  height: 55vh;
-  display: flex;
-  flex-direction: column;
+body .succes-msg .succes-msg-content {
+  margin-top: 6rem;
 }
-body .succes-section .Success-messag-content img {
+@media (min-width: 992px) {
+  body .succes-msg .succes-msg-content {
+    margin-top: 0.5rem;
+  }
+}
+body .succes-msg .succes-msg-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+}
+@media (min-width: 768px) {
+  body .succes-msg .succes-msg-content h2 {
+    font-size: 3.6rem;
+  }
+}
+body .succes-msg .succes-msg-content img {
   width: 50px;
 }
-body .succes-section .Success-messag-content a {
-  align-self: flex-end;
+body .succes-msg .succes-msg-content p {
+  line-height: 1.5;
 }
-body .succes-section .Success-messag-content p span {
+body .succes-msg .succes-msg-content p span {
   color: black;
+  font-weight: bold;
 }
-body .succes-section .Success-messag-content a {
-  background-color: bisque;
-  text-decoration: none;
+body .succes-msg button {
   align-self: stretch;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 500px;
 }
 
-body .section-flex-content .flex-content .flex-content-items .item-input form button, body .succes-section .Success-messag-content a {
-  padding: 20px;
+body .section-flex-content .flex-content .flex-content-items .item-input form button, body .succes-msg button {
+  padding: 1rem;
   text-align: center;
   font-size: 25px;
   white-space: nowrap;
   background-color: hsl(234, 29%, 20%);
   border: none;
   border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+body .section-flex-content .flex-content .flex-content-items .item-input form button:hover, body .succes-msg button:hover {
+  background: rgb(255, 83, 121);
+  background: linear-gradient(90deg, rgb(255, 83, 121), rgb(255, 103, 62));
+  box-shadow: 0 0.8rem 2rem -10px hsl(4, 100%, 67%);
 }/*# sourceMappingURL=style.css.map */

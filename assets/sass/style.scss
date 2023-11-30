@@ -6,7 +6,12 @@
 body {
     background-color: $color-primary;
     font-family: $font-family;
-
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
     .section-flex-content {
         display: flex;
         justify-content: center;
@@ -28,15 +33,18 @@ body {
             flex-direction: column-reverse;
             gap: 3rem;
             background-color: white;
-            padding: 23px;
+            padding: 0;
             border-radius: 2rem;
             align-items: center;
 
             @include bp(md) {
                 flex-direction: row;
+                padding: 23px;
             }
             
             .flex-content-items {
+                
+                padding: 23px;
                 
                 h1 {
                     font-size: 3.6rem;
@@ -94,7 +102,6 @@ body {
                               color: red;
                               display: none;
                             }
-    
                         }
 
                         input {
@@ -114,75 +121,97 @@ body {
                             width: 100%;
                         }
                     }
-                    
+                }
+            }
+
+            .image-content {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    padding: 0!important;
+
                 }
 
             }
 
         }
-
-    
+        
     }
 
-    .succes-section {
-        background-color: $success-background-color;
-        padding: 50px 0;
-        max-width: 500px;
+    .succes-msg {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 3rem 2rem;
+        background-color: white;
+        min-height: 100%;
         width: 100%;
-        margin: 0 auto;
-        margin-top: 2rem;
 
         @include bp(md) {
-            flex-direction: row;
-            gap: 4rem;
-            max-width: 1200px;
-            padding: 50px; 
-  
+            max-width: 500px;
+            min-height: auto;
+            border-radius: 2rem;
+            width: auto;
         }
 
-        .Success-messag-content {
-           background-color: white;
-           max-width: 300px;
-           width: 100%;
-           padding: 23px;
-           margin: 0 auto;
-           height: 55vh;
-           display: flex;
-           flex-direction: column;
+        .succes-msg-content {
+            margin-top: 6rem ;
+
+            @include bp(md) {
+                margin-top: 0.5rem ;
+            }
     
-            img {
-              width: 50px;
-            }
+            h2 {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                font-size: 3.5rem;
 
-            a  {
-              align-self: flex-end;
-            }
-
-           p{ 
-                span {
-                   color: black;
+                @include bp(sm){
+                    font-size: 3.6rem;
                 }
             }
-  
-           a {
-                @extend %btn_cta;
-                background-color: bisque;
-                text-decoration: none;
-                align-self: stretch;
-           }
 
+            img {
+               width: 50px;
+            }
+
+            p{ 
+                line-height: 1.5;
+                span {
+                    color: black;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+        button {
+            @extend %btn_cta;
+            align-self: stretch;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 500px;
         }
     }
 }
 
 %btn_cta  {
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
     font-size: 25px;
     white-space: nowrap;
     background-color: $button-submit-color;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+        background: rgb(255,83,121);
+        background: linear-gradient(90deg, rgba(255,83,121,1), rgba(255,103,62,1));
+        box-shadow: 0 0.8rem 2rem -10px hsl(4,100%, 67%);
+    }
 }
 
 

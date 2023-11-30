@@ -1,21 +1,20 @@
 
-
 const submitButton = document.getElementById('submitButton');
 const email = document.querySelector('#email');
 const error = document.querySelector('.error');
+const sectionMessage = document.querySelector('.msg');
+const sectionForm = document.querySelector('.sectionForm');
+const submitMsgButton = document.querySelector('.submitMsgButton');
 
 function emailValidation() {
-  if (email.value == "") {
-    email.style.border = '1px solid';
-    email.style.borderColor = 'red';
-    error.style.display = "block"
+
+  if (email.value.trim() === "") {
+    email.style.border = '1px solid red';
+    error.style.display = "block";
   } else {
-
-    email.style.border = '1px solid';
-    email.style.borderColor = 'green';
-    error.style.display = "none"
-
-  }
+    email.style.border = '1px solid green';
+    error.style.display = "none";
+  } 
 }
 
 submitButton.addEventListener('click', e => {
@@ -25,5 +24,28 @@ submitButton.addEventListener('click', e => {
 
 
 email.addEventListener('keyup', e => {
-   alert('masingacite');
-  });
+  emailValidation();
+});
+
+email.addEventListener('blur', function() {
+  emailValidation();
+
+});   
+
+submitButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  emailValidation();
+  if (email.value.trim() !== "") {
+    sectionMessage.style.display = "block";
+    sectionForm.style.display = "none";
+    error.style.display = "none";
+  }
+
+});   
+
+submitMsgButton.addEventListener('click', function() {
+  sectionMessage.style.display = "none"
+  sectionForm.style.display = "block"
+  email.value = "";
+  email.style.border = '1px solid black';
+});   
